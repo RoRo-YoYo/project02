@@ -32,5 +32,11 @@ if (!osmLoadMapFile(filename, xmldoc)) {
     Nodes object(xmldoc);
     int num_of_nodes = object.getNumOsmNodes();
     
-    cout << "# of nodes: " << num_of_nodes << endl;    
+    cout << "# of nodes: " << num_of_nodes << endl;  
+    
+    cout << endl;
+    cout << "** Done **" << endl;
+    cout << "# of calls to getID(): " << Node::getCallsToGetID()<< endl;
+    cout << "# of Nodes created: " << Node::getCreated()<< endl;
+    cout << "# of Nodes copied: " << Node::getCopied()<< endl;    
 }
