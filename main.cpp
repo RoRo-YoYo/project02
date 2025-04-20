@@ -29,9 +29,7 @@ string filename;
 
 cout << endl;
 cout << "Enter map filename>" << endl;
-
-
-getline(cin, filename);
+cin >> filename;
 
 if (!osmLoadMapFile(filename, xmldoc)) {
     return 0;}
@@ -43,6 +41,28 @@ if (!osmLoadMapFile(filename, xmldoc)) {
 
     cout << "# of nodes: " << num_of_nodes << endl;  
     cout << "# of buildings: " << num_of_buildings<< endl; 
+    
+    // Initialize looping question
+    string command_input;
+    cout << "Enter building name (partial or complete), or * to list, or $ to end" << endl;
+    getline(cin, command_input);
+
+    // Access vecot of Buildings
+    vector<Building> building_vector = buildings.GetOsmBuildings();
+    // While input is not $, continue
+    while (command_input != "$") {
+        // if inputted *, go through building
+        if (command_input == "*") {
+            for (Building& b : building_vector) {
+                cout << b.getID() << ": " << b.getName() << ", " << b.getStreetAddress() << endl;
+            }}
+
+        // else, 
+
+
+        // Ask again
+        getline(cin, command_input);
+    }
 
     cout << endl;
     cout << "** Done **" << endl;
