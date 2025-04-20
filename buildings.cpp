@@ -8,8 +8,7 @@
 //
 // Original author: Prof. Joe Hummel
 //
-
-#pragma once 
+ 
 #include <vector> 
 #include <cassert> // Include this header for assert
 #include "building.h" 
@@ -27,8 +26,12 @@ Buildings::Buildings(XMLDocument& xmldoc) {
 
     XMLElement* osm = xmldoc.FirstChildElement("osm");
     assert(osm != nullptr);
+
+    
     // Start traversal from the first "way" element
     XMLElement* way = osm->FirstChildElement("way");
+
+    while (way != nullptr) {
     // If the way element contains the (key, value) pair (“building”, “university”)
     // then build get name and street address
     if (osmContainsKeyValue(way,"building","university")) {
@@ -56,8 +59,13 @@ Buildings::Buildings(XMLDocument& xmldoc) {
           nd = nd->NextSiblingElement("nd");} 
         
           //Once building object B is fully initialized, add B to Buildings vector data member
-          osmBuildings.push_back(B);}}
+          osmBuildings.push_back(B);}
 
+          // Move on to the next way
+          way = way->NextSiblingElement("way");
+        }
+
+    }
 /// Get number
 int Buildings::GetNumOsBuildings() {
     return osmBuildings.size();}
