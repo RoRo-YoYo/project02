@@ -1,7 +1,14 @@
+// Rocelyn Young
+// Northwestern University
+// CS 211
+// Week of April 14, 2025
+
+
 #include <iostream>
 #include <string>
 
 #include "building.h"
+#include "buildings.h"
 #include "node.h"
 #include "nodes.h"
 #include "osm.h"
@@ -30,13 +37,17 @@ if (!osmLoadMapFile(filename, xmldoc)) {
     return 0;}
 
     Nodes object(xmldoc);
+    Buildings buildings(xmldoc);
     int num_of_nodes = object.getNumOsmNodes();
-    
+    int num_of_buildings = buildings.GetNumOsBuildings();
+
     cout << "# of nodes: " << num_of_nodes << endl;  
-    
+    cout << "# of buildings: " << num_of_buildings<< endl; 
+
     cout << endl;
     cout << "** Done **" << endl;
     cout << "# of calls to getID(): " << Node::getCallsToGetID()<< endl;
     cout << "# of Nodes created: " << Node::getCreated()<< endl;
+    cout << "# of Nodes copied: " << Node::getCopied()<< endl; 
     cout << "# of Nodes copied: " << Node::getCopied()<< endl;    
 }
