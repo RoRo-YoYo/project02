@@ -30,13 +30,14 @@ class Buildings {
         //
         // constructor
         //
-        // Given an XML document, reads trhoguh the document and
+        // Given an XML document, reads through the document and
         // stores all the buildings into the vector data member.
         Buildings(XMLDocument& xmldoc);
 
         //
         // accessors / getters
-        //
+        // access the size of vector osmBuildings
 
         int GetNumOsBuildings();
+
     };    
