@@ -43,7 +43,7 @@ if (!osmLoadMapFile(filename, xmldoc)) {
     cout << "# of buildings: " << num_of_buildings<< endl; 
     
     // Initialize looping question
-    string command_input;
+    string command_input = "NA";
     cout << "Enter building name (partial or complete), or * to list, or $ to end" << endl;
     getline(cin, command_input);
 
@@ -54,10 +54,26 @@ if (!osmLoadMapFile(filename, xmldoc)) {
         // if inputted *, go through building
         if (command_input == "*") {
             for (Building& b : building_vector) {
-                cout << b.getID() << ": " << b.getName() << ", " << b.getStreetAddress() << endl;
-            }}
+                cout << b.getID() << ": " << b.getName() << ", " << b.getStreetAddress() << endl;}}
 
         // else, 
+        else if (command_input != "NA") { 
+            for (Building& b : building_vector) 
+            { string name = b.getName();
+                if (name.find(command_input) != string::npos) {
+                    // if the name of the building have the given substring, print
+                    cout << b.getName() << endl;
+                    cout << "Address: " << b.getStreetAddress() << endl;
+                    cout << "Building ID: " << b.getID() << endl;
+                    cout << "Nodes:" << endl;
+                    vector<long long> b_node = b.getNodeIDs();
+                    if (b_node.size() == 0) {cout << "** NOT FOUND **"; }
+                    //else { for (long long n : b_node) {
+                     //   n.find();
+                    //}
+                }
+            }
+        }
 
 
         // Ask again

@@ -30,3 +30,17 @@ void Building::add(long long nodeid)
   this->NodeIDs.push_back(nodeid);
 }
 
+long long Building::getID() {
+  return ID;}
+
+string Building::getName() {
+  return Name;
+}
+
+string Building::getStreetAddress() {
+  return StreetAddress;}
+
+vector<long long>  Building::getNodeIDs() {
+  return NodeIDs;
+}
+

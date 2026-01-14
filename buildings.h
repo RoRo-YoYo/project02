@@ -40,4 +40,5 @@ class Buildings {
 
         int GetNumOsBuildings();
 
+        vector<Building> GetOsmBuildings();
     };    

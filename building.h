@@ -46,5 +46,14 @@ public:
   //
   void add(long long nodeid);
 
+  // return data associated
+  long long getID();
+  string getName();
+  string getStreetAddress();
+  vector<long long>  getNodeIDs();
+  
+
+
+
 };
 

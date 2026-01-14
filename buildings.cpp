@@ -69,3 +69,8 @@ Buildings::Buildings(XMLDocument& xmldoc) {
 /// Get number
 int Buildings::GetNumOsBuildings() {
     return osmBuildings.size();}
+
+ /// Get OsmBuildings  
+vector<Building> Buildings::GetOsmBuildings() {
+    return osmBuildings;}
+  
